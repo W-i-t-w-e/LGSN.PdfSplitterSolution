@@ -46,9 +46,9 @@ namespace LGSN.BarcodeScannerLibrary
             var reader = new BarcodeReader()
             {
                 AutoRotate = true,
-                TryInverted = true,
                 Options = new DecodingOptions
                 {
+                    TryInverted =true,
                     TryHarder = true,
                     PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_128 }
                 }

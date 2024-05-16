@@ -20,9 +20,9 @@ namespace LGSN.PdfSplitterService
             this.logger = logger;
             this.hostApplicationLifetime = hostApplicationLifetime;
             this.splitterService = splitterService;
-            sourcePath = configuration.GetValue<string>("Path:SourcePath");
-            destinationPath = configuration.GetValue<string>("Path:DestinationPath");
-            archivePath = configuration.GetValue<string>("Path:ArchivePath");
+            sourcePath = configuration.GetValue<string>("Path:SourcePath")!;
+            destinationPath = configuration.GetValue<string>("Path:DestinationPath")!;
+            archivePath = configuration.GetValue<string>("Path:ArchivePath")!;
             fileExtension = "pdf";
             IsArchivingEnabled = configuration.GetValue<bool>("Common:ArchivingEnabled");
             IsDeleteSourceFileEnabled = configuration.GetValue<bool>("Common:DeleteSourceFile");

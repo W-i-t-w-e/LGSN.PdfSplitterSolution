@@ -49,7 +49,7 @@ try
     logger.LogInformation("   #    ###    #     ##    ##    #    ####   ##   ####     #");
     logger.LogInformation("");
     logger.LogInformation("");
-    logger.LogInformation($"Version {appVersion.Major}.{appVersion.Minor}");
+    logger.LogInformation($"Version {appVersion?.Major}.{appVersion?.Minor}");
     logger.LogInformation("--------------------------------------------------");
     logger.LogInformation("------------>starting up the service<-------------");
     logger.LogInformation("--------------------------------------------------");
