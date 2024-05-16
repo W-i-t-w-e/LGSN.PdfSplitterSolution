@@ -36,6 +36,7 @@ namespace LGSN.PdfSplitterService
             {
                 while (await timer.WaitForNextTickAsync(stoppingToken) && stoppingToken.IsCancellationRequested == false)
                 {
+                    logger.LogInformation($"Getting all {fileExtension} files from {sourcePath}...");
                     var fileList = GetAllPdfFiles(sourcePath);
                     foreach (var file in fileList)
                     {
@@ -52,6 +53,8 @@ namespace LGSN.PdfSplitterService
                             DeleteFile(file);
                         }
                     }
+
+                    logger.LogInformation("Done...");
                 }
             }
             catch (Exception ex)
@@ -65,7 +68,6 @@ namespace LGSN.PdfSplitterService
         private string[] GetAllPdfFiles(string sourcePath)
         {
             var searchPattern = string.Format("*.{0}", fileExtension);
-            logger.LogInformation($"Getting all {fileExtension} files from {sourcePath}...");
             var files = Directory.GetFiles(sourcePath, searchPattern, SearchOption.TopDirectoryOnly);
             logger.LogInformation($"{files.Length} files found...");
             return files;
