@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <AssemblyVersion>0.1.0.0</AssemblyVersion>
+	  <FileVersion>0.1.0.0</FileVersion>
+	  <Version>0.1.0</Version>
+	  <Company>Labor MVZ Westmecklenburg</Company>
+	  <Authors>Hannes Wölk</Authors>
+	  <Copyright>Hannes Wölk - Labor MVZ Westmecklenburg</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
