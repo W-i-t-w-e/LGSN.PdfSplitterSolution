@@ -1,4 +1,4 @@
-using LGSN.PdfSplitterService.HostBuilders;
+using LGSN.PdfSplitterServiceV2.HostBuilders;
 using System.Reflection;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -13,13 +13,13 @@ try
     // ASCII generator at https://de.rakko.tools/tools/68/ font: clr5x10
     var appVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
-    logger.LogInformation("  ###      #    ##         ##         ##     #                                   ##                      #");
-    logger.LogInformation("  #  #     #   #          #  #         #           #     #                      #  #");
-    logger.LogInformation("  #  #   ###   #          #     ###    #    ##    ####  ####   ##   # ##        #      ##   # ##  #  #  ##     ###   ##");
-    logger.LogInformation("  ###   #  #  ###          ##   #  #   #     #     #     #    #  #  ##           ##   #  #  ##    #  #   #    #     #  #");
-    logger.LogInformation("  #     #  #   #             #  #  #   #     #     #     #    ####  #              #  ####  #     #  #   #    #     ####");
-    logger.LogInformation("  #     #  #   #          #  #  #  #   #     #     #     #    #     #           #  #  #     #      ##    #    #     #");
-    logger.LogInformation("  #      ###   #           ##   ###   ###   ###     ##    ##   ##   #            ##    ##   #      ##   ###    ###   ##");
+    logger.LogInformation("  ###      #    ##         ##         ##     #                                   ##                      #                      #  #   ##");
+    logger.LogInformation("  #  #     #   #          #  #         #           #     #                      #  #                                            #  #  #  #");
+    logger.LogInformation("  #  #   ###   #          #     ###    #    ##    ####  ####   ##   # ##        #      ##   # ##  #  #  ##     ###   ##         #  #     #");
+    logger.LogInformation("  ###   #  #  ###          ##   #  #   #     #     #     #    #  #  ##           ##   #  #  ##    #  #   #    #     #  #        #  #    #");
+    logger.LogInformation("  #     #  #   #             #  #  #   #     #     #     #    ####  #              #  ####  #     #  #   #    #     ####         ##    #");
+    logger.LogInformation("  #     #  #   #          #  #  #  #   #     #     #     #    #     #           #  #  #     #      ##    #    #     #            ##   #");
+    logger.LogInformation("  #      ###   #           ##   ###   ###   ###     ##    ##   ##   #            ##    ##   #      ##   ###    ###   ##          ##   ####");
     logger.LogInformation("                                #");
     logger.LogInformation("                                #");
     logger.LogInformation("               #                                  #                 #  #                                      #  #              ##    #");
@@ -41,19 +41,19 @@ try
     logger.LogInformation("                                                                                                                                                     #");
     logger.LogInformation("                                                                                                                                                   ##");
     logger.LogInformation("   #    ####         ##   ####         ##    ##    ##      #");
-    logger.LogInformation("  ##    #           #  #  #           #  #  #  #  #  #    ##");
-    logger.LogInformation("   #    #           # ##  #              #  # ##     #    ##");
-    logger.LogInformation("   #    ###         ## #  ###           #   ## #    #    # #");
-    logger.LogInformation("   #       #        #  #     #         #    #  #   #     # #");
-    logger.LogInformation("   #       #   #    #  #     #   #    #     #  #  #     ####");
-    logger.LogInformation("   #    ###    #     ##    ##    #    ####   ##   ####     #");
+    logger.LogInformation("  ##       #        #  #  #           #  #  #  #  #  #    ##");
+    logger.LogInformation("   #       #        # ##  #              #  # ##     #    ##");
+    logger.LogInformation("   #      #         ## #  ###           #   ## #    #    # #");
+    logger.LogInformation("   #      #         #  #     #         #    #  #   #     # #");
+    logger.LogInformation("   #     #     #    #  #     #   #    #     #  #  #     ####");
+    logger.LogInformation("   #     #     #     ##   ###    #    ####   ##   ####     #");
     logger.LogInformation("");
     logger.LogInformation("");
     logger.LogInformation($"Version {appVersion?.Major}.{appVersion?.Minor}");
     logger.LogInformation("--------------------------------------------------");
     logger.LogInformation("------------>starting up the service<-------------");
     logger.LogInformation("--------------------------------------------------");
-    await host.RunAsync(); 
+    await host.RunAsync();
 
 }
 catch (Exception ex)

@@ -8,40 +8,45 @@ namespace LGSN.BarcodeScannerLibrary
 {
     public static class BarcodeScanner
     {
-        public static string GetBarcode(Image input)
+        public static string GetBarcodeFromImageMorePrecise(Image input)
         {
             using (var bmp = new Bitmap(input))
             {
-                int height = bmp.Height;
-                int width = bmp.Width;
-                int splitY = 3;
-                int cropY = bmp.Height / splitY;
-                var startY = 0;
-
-                for (int i = 0; i < splitY; i++)
-                {
-                    // stick within imagesize
-                    if (startY + cropY > height)
-                    {
-                        cropY = height;
-                    }
-                    var rect = new Rectangle(0, startY, width, cropY);
-                    using (var imgPart = bmp.Clone(rect, bmp.PixelFormat))
-                    {
-                        var barcode = GetBarcodeFromImage(imgPart);
-                        if (string.IsNullOrEmpty(barcode) == false)
-                        {
-                            return barcode;
-                        }
-                        startY += cropY;
-                    }
-                }
-                return string.Empty;
+                return GetBarcodeFromBitmapMorePrecise(bmp);
             }
 
         }
 
-        private static string GetBarcodeFromImage(Bitmap imgPart)
+        public static string GetBarcodeFromBitmapMorePrecise(Bitmap bmp)
+        {
+            int height = bmp.Height;
+            int width = bmp.Width;
+            int splitY = 3;
+            int cropY = bmp.Height / splitY;
+            var startY = 0;
+
+            for (int i = 0; i < splitY; i++)
+            {
+                // stick within imagesize
+                if (startY + cropY > height)
+                {
+                    cropY = height;
+                }
+                var rect = new Rectangle(0, startY, width, cropY);
+                using (var imgPart = bmp.Clone(rect, bmp.PixelFormat))
+                {
+                    var barcode = GetBarcodeFromImage(imgPart);
+                    if (string.IsNullOrEmpty(barcode) == false)
+                    {
+                        return barcode;
+                    }
+                    startY += cropY;
+                }
+            }
+            return string.Empty;
+        }
+
+        public static string GetBarcodeFromImage(Bitmap imgPart)
         {
             var reader = new BarcodeReader()
             {

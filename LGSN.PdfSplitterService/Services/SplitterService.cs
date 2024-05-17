@@ -31,7 +31,7 @@ namespace LGSN.PdfSplitterService.Services
                     using (var bitmapImage = pdfDocument.Render(i, 300, 300, PdfRenderFlags.CorrectFromDpi))
                     {
                         logger.LogDebug("Try to get code128 barcode from page image...");
-                        var barcode = BarcodeScanner.GetBarcode(bitmapImage);
+                        var barcode = BarcodeScanner.GetBarcodeFromImageMorePrecise(bitmapImage);
 
                         if (string.IsNullOrEmpty(barcode))
                         {
